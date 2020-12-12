@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music_index</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+<div th:replace="box/musicnav :: headernav">
+</div>
+    <div class="musicindex">
+        <!--传参查询、默认输出所有的歌单-->
+    </div>
+<!-- footer -->
+    <div th:replace="box/musicnav :: footer"></div>
+    </body>
+</html>

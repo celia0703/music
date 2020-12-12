@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+<th:block th:include="box/adminav :: head">
+</th:block>
+<body>
+<div th:replace="box/adminav :: nav">
+</div>
+<!--  底层背景 -->
+<div class="admin_bg">
+    <!-- 主要显示区域 -->
+    <div class="admin">
+        <div class="msupSpan">
+            <center> <span>LOVER ADMIN</span></center>
+        </div>
+        <!-- 上传的表单 -->
+        <div class="musicform">
+        <form>
+        <table class="admin_table1">
+            <tr>
+<!--                <td><span>ID</span></td>-->
+                <td><span>封面</span></td>
+                <td><span>音乐名</span></td>
+                <td><span>歌手</span></td>
+                <td><span>专辑</span></td>
+                <td><span>标签</span></td>
+                <td><span>歌词文件</span></td>
+                <td><span>音乐文件</span></td>
+                <td>操作</td>
+            </tr>
+            <tr th:each="model : ${music}">
+<!--                <td><span th:text="${model.musicId}" ></span></td>-->
+                <td><img th:src="${model.musicimg}"></td>
+                <td><span th:text="${model.musicname}"></span></td>
+                <td><span th:text="${model.singerSingername}"></span></td>
+                <form th:action="@{/admin/musicAl(id=${model.musicId})}" method="post">
+                <td>
+                    <input list="browsers" id="inputlist" th:placeholder="${model.albumAlbumname}" name="albumAlbumname">
+                    <datalist id="browsers">
+                        <option th:each="album : ${albumall}">[[${album.albumname}]]</option>
+                    </datalist>
+                </td>
+                <td><span th:text="${model.tag}"></span></td>
+                <td><span th:text="${model.lrc}"></span></td>
+                <td><span th:text="${model.musicurl}"></span></td>
+                <td>
+                    <button type="submit" class="edit">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dianzan-"></use>
+                    </svg>
+                    </button>
+                    <a th:href="@{/admin/deleteMu(id=${model.musicId})}">
+                        <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xinbaniconshangchuan-"></use>
+                        </svg>
+                    </a>
+                </td>
+                </form>
+            </tr>
+        </table>
+        </form>
+            <div class="musicpage">
+                <a th:href="@{/admin/music}">首页</a>
+                <span th:if="${pages} gt 1" th:each="model:${#numbers.sequence(2,{pages})}">
+                <a th:href="@{?(pageNum=${model})}"><span th:text="${model}"></span></a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+    <th:block th:include="box/musicnav :: head">
+    </th:block>
+<body style=" ">
+ <!-- 主框架-->
+    <iframe id="iframe1" th:src="@{/music/musicindex}"></iframe>
+    <iframe id="iframe2" name="iframe"th:src="@{/box/musicbox}"></iframe>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+<th:block th:include="box/adminav :: head">
+</th:block>
+<body>
+<div th:replace="box/adminav :: nav">
+</div>
+<!--  底层背景 -->
+<div class="admin_bg">
+    <!-- 主要显示区域 -->
+    <div class="admin">
+        <!--侧边栏-->
+        <div class="leftnav">
+            <div class="adlist">
+                <span>LOVER ADMIN</span>
+                <hr>
+                <ul>
+                    <li><a  th:href="@{/admin/album} " ><span>专辑管理</span></a></li>
+                    <li><a  th:href="@{/admin/albumup}" ><span>创建专辑</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rightnav">
+            <table class="admin_table">
+                <tr>
+                    <td><span>专辑名称</span></td>
+                    <td><span>专辑封面</span></td>
+                    <td><span>发行日期</span></td>
+                    <td><span>歌手</span></td>
+                    <td></td>
+                </tr>
+                <tr th:each="model : ${album}">
+                    <td><span th:text="${model.albumname}">111</span></td>
+                    <td><img th:src="${model.albumimg}"></td>
+                    <td><span th:text="${model.albumtime}">111</span></td>
+                    <td><span th:text="${model.singerSingername}">111</span></td>
+                    <td>
+                    <a th:href="@{/admin/albumdel(id=${model.albumId})}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xinbaniconshangchuan-"></use>
+                        </svg>
+                    </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="adbottom">
+    <span class="spleft">&copy;版权所有2019 niceOnly</span>
+    <span class="spright">@nice0620</span>
+</div>
+
+</body>
+</html>

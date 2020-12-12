@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music_index</title>
+</head>
+    <div th:fragment="head">
+        <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/admin.css}">
+        <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+        <script th:inline="javascript" th:src="@{/bootstrap-3.3.7-dist/js/admin.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/js/iconfont.js}"></script>
+    </div>
+    <!--头部导航栏-->
+    <div th:fragment="nav">
+        <div class="ad_headerbg">
+            <div class="ad_header">
+                <div class="headerlogo">
+                    <span>LOVER <B> ADMIN</B></span>
+                </div>
+                <div class="headerlogin">
+                    <span>[[${session.loginAdmin}]]</span>
+                    <a th:href="@{/admin/adminout}">退出</a>
+                </div>
+            </div>
+        </div>
+        <!-- 功能导航栏  -->
+        <div id="ad_funnavbg">
+            <div id="ad_funnav">
+                <!-- 网页首页主要包括轮播图和在线人数之类的统计-->
+                <div>
+                    <a th:href="@{/admin/admin}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-xingfen"></use>
+                        </svg>
+                        <span>网页管理</span>
+                    </a>
+                </div>
+                <!--主要包括用户管理、用户评论管理-->
+                    <a th:href="@{/admin/aduser}">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-nanshou"></use>
+                        </svg>
+                        <span>用户管理</span>
+                    </a>
+                <!--主要包括歌手、歌曲管理-->
+                <a th:href="@{/admin/music}" >
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-yuyue"></use>
+                    </svg>
+                    <span>歌曲管理</span>
+                </a>
+                <!--主要包括歌单和专辑的管理-->
+                <a th:href="@{/admin/album}" >
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-shengqi"></use>
+                    </svg>
+                    <span>专辑管理</span>
+                </a>
+                <!--主要包括订单查询-->
+                <a th:href="@{/admin/member}" >
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-yiban"></use>
+                    </svg>
+                    <span>评论管理</span>
+                </a>
+                <!-- 上传歌曲 -->
+                <a th:href="@{/admin/musicup}">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-tianjiawenjian-"></use>
+                    </svg>
+                    <span>上传歌曲</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

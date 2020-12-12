@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+<th:block th:include="box/adminav :: head">
+</th:block>
+<body>
+<div th:replace="box/adminav :: nav">
+</div>
+<!--  底层背景 -->
+<div class="admin_bg">
+    <!-- 主要显示区域 -->
+    <div class="admin">
+        <div class="msupSpan">
+            <center><span>上传音乐文件</span></center>
+        </div>
+    <!-- 上传的表单 -->
+        <form th:action="@{/admin/upload}" method="post" enctype="multipart/form-data" >
+            <div class="adupleft">
+            <p>
+                <input type="text" class="musicname" name="musicname" placeholder="请输入音乐名">
+            <p>
+            <input type="text" class="singer" name="singerSingername" placeholder="请输入歌手名">
+            <p>
+            <input type="text" class="tag" name="tag" placeholder="请输入歌曲标签">
+            <p>
+
+            <input type="file" id="file0" name="musicimg">
+            <img th:src="@{/image/admin/th.jpeg}" id="adupimg0">
+            <p>
+            <svg class="icon formsvg" aria-hidden="true">
+                <use xlink:href="#icon-tianjiawenjian-"></use>
+            </svg>
+            <label id="label1" for="file0">
+                请选择封面
+            </label>
+            </div>
+
+            <div class="adupright">
+                <p>
+                    <input type="file" id="file1" name="file" >
+                    <audio src="" id="adupaudio0" controls="controls"></audio>
+                <p>
+                    <svg class="icon formsvg" aria-hidden="true">
+                        <use xlink:href="#icon-tianjiawenjian-"></use>
+                    </svg>
+                    <label for="file1">请选择歌曲</label>
+                    <input hidden type="text" name="targetUriMp3" value="//Users/mac/Desktop/music/songbook"/>
+                    <input hidden type="text" name="targetUriImage" value="//Users/mac/Desktop/music/imgbook"/>
+                    <input hidden type="text" name="targetUriText" value="//Users/mac/Desktop/music/lrcbook"/>
+                <p>
+                <input type="text" id="aduptext0" class="aduptext"  readonly>
+                <p>
+                <svg class="icon formsvg" aria-hidden="true">
+                    <use xlink:href="#icon-tianjiawenjian-"></use>
+                </svg>
+                <label for="file2" >请选择歌词</label>
+                <input type="file" name="lrc" id="file2" value="请选择歌词"/>
+                    <p>
+                <input type="submit" class="adupsubmit" value="提交">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

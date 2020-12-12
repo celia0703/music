@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+    <div class="musicComM">
+
+        <img class="comimg" th:src="${music.musicimg}">
+        <div class="Comright">
+            <div class="Cspan">
+            歌曲名:<span th:text="${music.musicname}">歌曲名</span>
+                <p>
+        </div>
+            <div class="Cspan1">
+                <span>专辑名:</span><span th:text="${music.albumAlbumname}">专辑名</span><p>
+                <span>歌手名:</span><span th:text="${music.singerSingername}">专辑名</span><p>
+            <input th:value="${music.lrc}"><p>
+                <a  class="a1" th:id="${music.musicname}" onclick="shoucang(id);">收藏</a>
+                <a class="a3" onclick="btn(id);" th:id="${music}">
+                    播放</a>
+                <a th:href="@{/music/download(url=${music.musicurl})}" th:if="${session.stutas eq '会员'}" class="a4">下载</a>
+                <a class="a2" onclick="comment(name);" th:name="${music.musicname}" data-toggle="modal" data-target="#comment">
+                    评论</a>
+            </div>
+    </div>
+<div class="musicCom">
+    <section class="comments" th:each="comment : ${comment}">
+        <article class="comment">
+            <div class="meta" >
+                <img class="comUserimg" th:src="${comment.users.userimg}">
+                <span  class="author" th:text="${comment.users.username}"></span>
+                    <span style="color:darkgrey" class="author"></span></h4>
+                <a href="#" class="date">
+                    <time datetime="2015-01-01" th:text="${comment.time}"></time>
+                </a>
+            </div>
+            <div class="content">
+                <p th:text="${comment.text}"></p>
+            </div>
+        </article>
+    </section>
+    </div>
+<!-- footer -->
+<div th:replace="box/musicnav :: footer"></div>
+</body>
+</html>

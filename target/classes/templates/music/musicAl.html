@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+<div class="searchbg">
+</div>
+<div class="listBody" >
+    <table class="table_list">
+        <tr>
+            <td><span>专辑名</span></td>
+            <td><span>歌曲名</span></td>
+            <td><span>歌手名</span></td>
+            <td></td>
+        </tr>
+        <tr th:each="model : ${album}">
+            <td><span th:text="${model.albumAlbumname}">专辑名</span></td>
+            <td><a th:href="@{/music/com(musicname=${model.musicname})}"><span th:text="${model.musicname}">歌曲名</span></a></td>
+            <td><span th:text="${model.singerSingername}">歌手名</span></td>
+            <td>
+                <a  class="a1" th:id="${model.musicname}" onclick="shoucang(id);">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-aixintubiao"></use>
+                    </svg>
+                </a>
+                <a class="a2" onclick="comment(name);" th:name="${model.musicname}" data-toggle="modal" data-target="#comment">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-liuyantubiao"></use>
+                    </svg>
+                </a>
+                <a class="a3" onclick="btn(id);" th:id="${model}">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-yixianshi-"></use>
+                    </svg>
+                </a>
+                <a th:href="@{/music/download(url=${model.musicurl})}" th:if="${session.stutas eq '会员'}" class="a4">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- footer -->
+<div th:replace="box/musicnav :: footer"></div>
+</body>
+</html>

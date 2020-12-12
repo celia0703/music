@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+<div class="searchbg">
+    <img th:src="${user.userimg}">
+    <ul class="breadcrumb userheader" >
+        <li><a class=" " th:href="@{/user/mylike}">我喜欢</a></li>
+<!--        <li><a th:href="@{/user/mycomment}">我的歌单</a></li>-->
+        <li><a th:href="@{/user/mine}">个人信息</a></li>
+    </ul>
+</div>
+<div class="listBody" >
+    <div class="mineuser">
+        <span class="user">我的收藏</span>
+        <hr>
+    <table class="table_list">
+        <tr>
+            <td><span>歌曲名</span></td>
+            <td><span>歌手</span></td>
+            <td><span>专辑</span></td>
+        </tr>
+        <tr th:each="model : ${mylike}">
+            <td><a th:href="@{/music/com(musicname=${model.musicname})}"><span th:text="${model.musicname}">歌曲名</span></a></td>
+            <td><span th:text="${model.singerSingername}">歌手</span></td>
+            <td><span th:text="${model.albumAlbumname}">专辑</span></td>
+            <td>
+                <a class="a2" onclick="comment(name);" th:name="${model.musicname}" data-toggle="modal" data-target="#comment">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-liuyantubiao"></use>
+                    </svg>
+                </a>
+                <a class="a3" onclick="btn(id);" th:id="${model}">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-yixianshi-"></use>
+                    </svg>
+                </a>
+                <a th:href="@{/music/download(url=${model.musicurl})}" th:if="${session.stutas eq '会员'}" class="a4">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                </a>
+                <a class="a4" th:href="@{/user/deleteLike(name=${model.musicname})}">
+                    <svg class="icon" aria-hidden="false">
+                        <use xlink:href="#icon-shanchu"></use>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+<!-- footer -->
+<div th:replace="box/musicnav :: footer"></div>
+</body>
+</html>

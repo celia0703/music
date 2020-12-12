@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music_index</title>
+</head>
+    <div th:fragment="head">
+        <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/music.css}">
+        <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/iconfont.css}">
+        <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/player.css}">
+        <script th:src="@{/bootstrap-3.3.7-dist/js/utill.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/js/musicPlayer.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+        <script th:inline="javascript" th:src="@{/bootstrap-3.3.7-dist/js/music.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+        <script th:src="@{/bootstrap-3.3.7-dist/js/iconfont.js}"></script>
+    </div>
+<body>
+    <div th:fragment="nav">
+        <!--logo  -->
+        <div class="m_logob">
+            <div class="m_logo">
+                <div class="logo_l">
+                    <a th:href="@{/music/musicindex}"><i class="web-font"><b>LOVER</b> MUSIC</i></a>
+                </div>
+                <!-- 搜索框 -->
+                <div id="logo_search">
+                    <form th:action="@{/music/searching}" method="get">
+                        <input type="text" id="m_search" name="musicname" placeholder="请输入歌曲名">
+                        <button type="submit" id="m_submit">
+                            <svg class="icon sb_icon" aria-hidden="false">
+                                <use xlink:href="#icon-sousuo"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 登录 | 注册-->
+                <div class="logo_login">
+<!--                    <span> <a data-target="#xiugai" data-toggle="modal">修改密码</a></span>-->
+                    <span><a class="headout" th:href="@{/user/loginout}" th:if="${session.loginUser}">退出登录</a></span>&nbsp;&nbsp;
+                    <a th:if="not ${session.loginUser}" class="login" href="" data-toggle="modal" data-target="#myModal">登录</a>
+                    <a th:href="@{/user/mylike}" class="login" id="logins" th:if="${session.loginUser}">[[${session.loginUser}]]</a>
+                    <span>|</span>
+                    <a class="register" href="" data-toggle="modal" data-target="#adminModal">Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:fragment="headernav">
+        <!-- 头部 -->
+        <div id="m_header">
+            <div class="m_index">
+                <a th:href="@{/music/musicindex}">首页</a>
+            </div>
+<!--            <div class="m_musiclist">-->
+<!--                <a th:href="@{/music/musicList}"> 歌单</a>-->
+<!--            </div>-->
+<!--            <div class="m_con"><a th:href="@{/music/comment}">动态</a></div>-->
+            <div class="m_album"><a th:href="@{/music/album}">专辑</a></div>
+<!--            <div class="loginout" th:if="${session.loginUser}">-->
+<!--                <img class="headlogin" th:src="@{/image/music/lover.png}">-->
+<!--                <a class="headout" th:href="@{/user/loginout}">退出</a>-->
+<!--            </div>-->
+        </div>
+        <!-- footer -->
+    </div>
+    <div th:fragment="footer">
+
+        <div class="footerback">
+            <footer class="footer">
+                <span>版权所有&copy;nice0620</span>
+                <br>
+                <span>违法和不良信息举报电话:18280748615</span>
+                <br>
+                <span>违法和不良信息举报邮箱:604242084@qq.com</span>
+            </footer>
+            <div class="footer_map">
+                <a>关于本站</a>
+                <span>|</span>
+                <a>监督举报</a>
+                <span>|</span>
+                <a>广告服务</a>
+                <span>|</span>
+                <a>版权指引</a>
+                <span>|</span>
+                <a>隐私政策</a>
+                <span>|</span>
+                <a>用户服务协议</a>
+                <span>|</span>
+                <a>推广合作</a>
+                <span>|</span>
+                <a>招聘信息</a>
+                <span>|</span>
+                <a>客服中心</a>
+                <span>|</span>
+                <a>用户体验计划</a>
+            </div>
+        </div>
+<!--         回到顶部 -->
+        <div id="gotoTop1">
+            <svg class="icon" aria-hidden="false">
+                <use xlink:href="#icon-huidaodingbu"></use>
+            </svg>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content u_model">
+                    <div class="modal-body ulogin">
+                        <a class="u_login active1">登&nbsp;录</a>
+                        <a class="u_register">注&nbsp;册</a>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="u_loginon">
+                            <form  id="loginform" method="get">
+                                <h3>欢迎回来</h3>
+                                <input class="login_input" type="username" id="username" name="username" placeholder="请输入您的用户名" autofocus="autofocus"><p>
+                                <input class="login_input"type="password" id="userpwd" name="userpwd" placeholder="请输入你的密码密码"><p>
+                                <input class="login_btn reset" type="reset" value="重置">
+                                <input class="login_btn submit" id="loginbtn" type="submit" value="登录">
+                            </form>
+                        </div>
+                        <div class="u_registeron">
+                            <form action="##" id="registerform"  method="get">
+                                <h3>请注册</h3>
+                                <p>
+                                    <input class="reg_input" type="username" id="username" name="username" placeholder="请输入用户名" autofocus="autofocus"><p>
+                                <input class="reg_input" type="password" id="userpwd" name="userpwd" placeholder="请输入密码"><p>
+                                <input class="reg_input" type="gender" id="gender" name="gender" placeholder="请输入性别"><p>
+                                <input class="reg_input" type="age" id="age" name="age" placeholder="请输入年龄"><p>
+                                <input class="reg_input" type="number" id="number" name="number" placeholder="请输入电话">
+                                <p>
+                                    <input class="login_btn reset"type="reset" value="重置">
+                                    <input class="login_btn submit" id="registerbtn" type="submit" value="注册">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- admin 登录 -->
+        <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content u_model">
+                    <div class="modal-body ulogin">
+                        <a class="u_login active1">登&nbsp;录</a>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="u_loginon">
+                            <form action="##" method="get" id="adminform">
+                                <h3>管理员登录</h3>
+                                <input class="login_input" type="username" id="admin" name="admin" placeholder="请输入您的用户名" autofocus="autofocus"><p>
+                                <input class="login_input"type="password"id="adminpwd" name="adminpwd" placeholder="请输入你的密码密码"><p>
+                                <input class="login_btn reset" type="reset" value="重置">
+                                <input id="adminbtn" class="login_btn submit"type="submit" value="登录">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--评论框-->
+        <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content u_model">
+                    <div class="modal-body ulogin">
+                        <span>有什么新鲜事告诉大家？</span>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="u_loginon">
+                            <form action="##" method="get" id="commentform">
+                                <input type="text" id="date" hidden name="date">
+                                <input type="text" class="commentmusic" name="musicname" placeholder="请输入标题" hidden>
+                                <input type="text" class="commentext" name="text" placeholder="请输入内容">
+                                <input class="commentbtn" type="submit" value="发表">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        修改密码-->
+<!--        <div class="modal fade" id="xiugai" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<!--            <div class="modal-dialog">-->
+<!--                <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--                        <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>-->
+<!--                    </div>-->
+<!--                    <form action="#" method="get" id="edit">-->
+<!--                        <div class="modal-body">-->
+<!--                            请输入原密码：<input type="text" name="password"><p/>-->
+<!--                            请输入新密码：<input type="text" name="password1"><p/>-->
+<!--                            确认密码：<input type="text" name="password2"><p/>-->
+<!--                            <button type="reset" hidden id="reset"></button>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+<!--                            <button type="button" class="btn btn-primary" id="sure_edit">提交更改</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; /.modal &ndash;&gt;-->
+<!--        </div>-->
+    </div>
+
+</body>
+
+</html>

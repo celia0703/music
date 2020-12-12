@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+    <th:block th:include="box/adminav :: head">
+    </th:block>
+<body>
+    <div th:replace="box/adminav :: nav">
+    </div>
+    <!--  底层背景 -->
+    <div class="admin_bg">
+    <!-- 主要显示区域 -->
+        <div class="admin">
+    <!--侧边栏-->
+            <div class="leftnav">
+                <div class="adlist">
+                    <span>LOVER ADMIN</span>
+                    <hr>
+                    <ul>
+                        <li><a class="active2" href=" " ><span>轮播图管理</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rightnav">
+                <table class="table_list">
+
+                    <tr th:each="model : ${recommend}">
+                        <td><span th:text="${model.recname}"></span></td>
+                        <td><img th:src="${model.recimg}" id="lunboimg"></td>
+                        <td class="lunboup">
+                            <form th:action="@{/admin/lunboup}" method="post" enctype="multipart/form-data">
+                                <svg class="icon formsvg1" aria-hidden="true">
+                                    <use xlink:href="#icon-tianjiawenjian-"></use>
+                                </svg>
+                                <label  for="file3" >选择图片</label>
+                                <input type="text" hidden name="recommendId" th:value="${model.recommendId}">
+                                <input type="file" id="file3"  name="lunboimg">
+                                <input hidden type="text" name="targetlunbo" value="//Users/mac/Desktop/music/imgindex"/>
+                                <button type="submit">上传</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="adbottom">
+        <span class="spleft">&copy;版权所有2019 niceOnly</span>
+        <span class="spright">@nice0620</span>
+    </div>
+
+</body>
+</html>

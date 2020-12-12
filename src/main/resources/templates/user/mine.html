@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+<div class="searchbg">
+<!--    <img th:src="${user.userimg}" id="touxiang">-->
+    <img th:src="${user.userimg}">
+    <ul class="breadcrumb userheader" >
+        <li><a class=" " th:href="@{/user/mylike}">我喜欢</a></li>
+<!--        <li><a th:href="@{/user/mycomment}">我的歌单</a></li>-->
+        <li><a th:href="@{/user/mine}">个人信息</a></li>
+    </ul>
+</div>
+<div class="listBody" >
+<!--    个人信息-->
+    <div class="mineuser">
+        <span class="user">基本资料</span>
+        <hr>
+        <form th:action="@{/user/mined(userId=${user.userId})}" method="post" class="formmine" enctype="multipart/form-data" >
+            <div class="userleft">
+                <span>昵称:</span><input type="text" th:value="${user.username}" name="username"><p>
+                <span>年龄:</span><input type="text" th:value="${user.age}" name="age"><p>
+                <span>电话:</span><input type="text" th:value="${user.number}" name="number"><p>
+                <span>性别:</span><input type="text" th:value="${user.gender}" name="gender"><p>
+                <span>日期:</span><input type="text" th:value="${user.regtime}"name="regtime" readonly><p>
+                <span hidden="hidden" th:text="${user.status}" name="status"></span>
+                <a th:href="@{/toPay}" class="vip" th:if=" ${session.stutas} ne '会员'">还不是会员？？点击注册会员</a>
+<!--                <span th:text="${session.stutas}"></span>-->
+            </div>
+            <div class="useright">
+                <svg class="icon formsvg" aria-hidden="true">
+                    <use xlink:href="#icon-tianjiawenjian-"></use>
+                </svg>
+                 <label for="file4">上传头像</label>
+                <input type="file" id="file4" name="userimg">
+                <input hidden type="text" name="touxiang" value="//Users/mac/Desktop/music/touxiang"/>
+                <p>
+                <img th:src="@{/image/admin/th.jpeg}" id="userimg1">
+                <p>
+                <button id="setuser" type="submit" >保存</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<!-- footer -->
+<div th:replace="box/musicnav :: footer"></div>
+</body>
+</html>

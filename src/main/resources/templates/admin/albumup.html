@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lover</title>
+</head>
+<th:block th:include="box/adminav :: head">
+</th:block>
+<body>
+<div th:replace="box/adminav :: nav">
+</div>
+<!--  底层背景 -->
+<div class="admin_bg">
+    <!-- 主要显示区域 -->
+    <div class="admin">
+        <!--侧边栏-->
+        <div class="leftnav">
+            <div class="adlist">
+                <span>LOVER ADMIN</span>
+                <hr>
+                <ul>
+                    <li><a th:href="@{/admin/album}"><span>专辑管理</span></a></li>
+                    <li><a  th:href="@{/admin/albumup}"><span>创建专辑</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rightnav">
+            <form th:action="@{/admin/albumupon}" method="post" class="albumform" enctype="multipart/form-data">
+            <input type="text" placeholder="请输入专辑名称" name="albumname"><p>
+                <input type="text" placeholder="请输入歌手名称" name="singerSingername">
+                <p>
+                <img th:src="@{/image/admin/th.jpeg}"  id="forupimg">
+                <label for="file4" class="forup">上传封面</label>
+                <input type="file" name="albumimg" id="file4" placeholder="上传封面">
+                <input hidden type="text" name="imgUrl" value="//Users/mac/Desktop/music/album"/>
+                <p>
+                <button type="submit" id="albumbtn">创建歌单</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+    <div class="adbottom">
+        <span class="spleft">&copy;版权所有2019 niceOnly</span>
+        <span class="spright">@nice0620</span>
+    </div>
+
+</body>
+</html>

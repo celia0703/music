@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music_index</title>
+</head>
+    <th:block th:include="box/musicnav :: head">
+    </th:block>
+<body>
+    <div th:replace="box/musicnav :: nav">
+    </div>
+    <div th:replace="box/musicnav :: headernav">
+    </div>
+<!-- 轮播图 -->
+    <div class="m_carouselback">
+        <div class="m_imgback"></div>
+        <div class="m_carousel">
+        <!-- 图片布局开始 -->
+        <ul>
+            <li><a href="#"><img id=“img” th:src="${lunbo1.recimg}"></a></li>
+            <li><a href="#"><img th:src="${lunbo2.recimg}"></a></li>
+            <li><a href="#"><img th:src="${lunbo3.recimg}"></a></li>
+            <li><a href="#"><img th:src="${lunbo4.recimg}"></a></li>
+        </ul>
+        <!-- 图片布局结束 -->
+        <div class="showNav">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+    </div>
+</div>
+<!-- 歌单推荐 -->
+<div class="m_nmusicB">
+    <div class="m_nmusic">
+
+    <span class="newSong">
+            <svg class="icon" aria-hidden="false">
+                    <use xlink:href="#icon-yinlegedan-"></use>
+                </svg>
+        歌单推荐
+    </span>
+        <span class="more">
+        <a th:href="@{/music/album}">更多</a>
+    </span>
+        <hr>
+        <p>
+        <div class="new_music" th:each="model : ${albumlist}">
+        <a th:href="@{/music/albumMusic(albumAlbumname=${model.albumname})}">
+            <div class="new_mcimg">
+                    <img th:src="${model.albumimg}">
+            </div>
+            <span th:text="${model.albumname}">介绍</span>
+        </a>
+        </div>
+</div>
+<!-- 新歌首发 -->
+<div class="newsong_back">
+    <div class="m_list">
+        <span class="newSong">
+            <svg class="icon" aria-hidden="false">
+                    <use xlink:href="#icon-erji-"></use>
+                </svg>
+        新歌首发
+    </span>
+        <span class="more">
+            <a >更多</a>
+    </span>
+        <hr>
+        <p>
+        <table class="table_list">
+            <tr th:each="model : ${musiclist}">
+                <td><span th:text="${model.musicId}">歌曲Id</span></td>
+                <td><a th:href="@{/music/com(musicname=${model.musicname})}"><span th:text="${model.musicname}">歌名</span></a></td>
+                <td><span th:text="${model.singerSingername}">歌手名</span></td>
+                <td>
+                    <a  class="a1" th:id="${model.musicname}" onclick="shoucang(id);">
+                        <span th:text="${model.musicname}" id="span1" hidden></span>
+                        <svg class="icon" aria-hidden="false">
+                            <use xlink:href="#icon-aixintubiao"></use>
+                        </svg>
+                    </a>
+                    <a class="a2" onclick="comment(name);" th:name="${model.musicname}" data-toggle="modal" data-target="#comment">
+                        <svg class="icon" aria-hidden="false">
+                            <use xlink:href="#icon-liuyantubiao"></use>
+                        </svg>
+                    </a>
+                    <a class="a3" onclick="btn(id);" th:id="${model}">
+                        <svg class="icon" aria-hidden="false">
+                            <use xlink:href="#icon-yixianshi-"></use>
+                        </svg>
+                    </a>
+                    <a th:href="@{/music/download(url=${model.musicurl})}" th:if="${session.stutas eq '会员'}" class="a4">
+                        <svg class="icon" aria-hidden="false">
+                            <use xlink:href="#icon-xiazai"></use>
+                        </svg>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <p>
+        <div class="page">
+            <ul th:each="page:${#numbers.sequence(1,3)}">
+                <li>
+                    <a th:href="@{?(pageNum=${page-1})}" >
+                        <svg class="icon" aria-hidden="false">
+                            <use xlink:href="#icon-bofang-"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>
+    </div>
+
+</div>
+<!-- footer -->
+    <div th:replace="box/musicnav :: footer"></div>
+    <!-- 登录-->
+
+</body>
+</html>

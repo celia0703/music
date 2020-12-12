@@ -1,0 +1,512 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    min-width: 1400px;
+    max-width: 100%;
+    background: whitesmoke;
+}
+
+/* 图标 */
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.ad_headerbg{
+    background: white;
+    /*border:1px solid red;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 80px;
+}
+/*顶部导航栏*/
+.ad_header{
+    /*border:1px solid red;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 78%;
+    height: 80px;
+}
+
+.headerlogo{
+    /*border:1px solid green;*/
+    background-image: url("/image/music/lover.png");
+    background-repeat: no-repeat;
+    background-size: 45%;
+    height: 100%;
+    width: 220px;
+    font-size: 20px;
+    float: left;
+}
+.headerlogo span{
+    margin:25px auto;
+    color: #E4AAD8;
+    position: relative;
+    float:right;
+}
+.headerlogin{
+    /*border: 1px solid green;*/
+    margin:30px auto;
+    float: right;
+    color: grey;
+}
+.headerlogin a{
+    /*border:1px solid red;*/
+    cursor: pointer;
+    text-decoration: none;
+    color:#E4AAD8;
+}
+.headerlogin a:hover{
+    font-weight: bold;
+}
+.headerlogin span:hover{
+    cursor: default;
+    color:black
+}
+/*头部导航栏*/
+#ad_funnavbg{
+    background-image: url("/image/admin/user.jpg");
+        /*border:1px solid red;*/
+    width: 100%;
+    height: 220px;
+}
+#ad_funnav{
+    /*border:1px solid orange;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 125px;
+    border-radius: 10px;
+}
+/*管理界面*/
+#ad_funnav a{
+    float: left;
+    /*border:1px solid red;*/
+    margin: auto 23px;
+    width: 120px;
+    height:100%;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    color:#F5F0AB;
+}
+#ad_funnav a:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color:pink;
+}
+.active1{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color:pink;
+}
+#ad_funnav span{
+    /*color:#F5F0AB;*/
+    position: relative;
+    top:-22px;
+    /*border:1px solid orange;*/
+}
+#ad_funnav svg{
+    /*border:1px solid orange;*/
+    width: 110px;
+    height: 120px;
+}
+.admin_bg{
+    background:white;
+    width: 100%;
+    height: 650px;
+    /*border:1px solid red;*/
+}
+/*底部版权*/
+.adbottom{
+    /*border:1px solid red;*/
+    position: relative;
+    top:-40px;
+    font-size: 12px;
+    color:grey;
+    margin-left: auto;
+    margin-right: auto;
+    width:1200px;
+    height: 20px;
+}
+.adbottom span{
+    /*border:1px solid pink;*/
+    top:-35px;
+    position: relative;
+}
+.adbottom .spleft{
+    float: left;
+}
+.adbottom .spright{
+    float: right;
+}
+
+/*主要body*/
+.admin{
+    /*x*/
+    /*border:1px solid red;*/
+    position: relative;
+    background: white;
+    top:-90px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: auto;
+    margin-right: auto;
+    width:1200px;
+    height: 700px;
+}
+.leftnav{
+    height:100%;
+    width: 250px;
+    float: left;
+    /*border:1px solid pink;*/
+}
+/*侧边导航栏*/
+.adlist{
+    /*border:1px solid orange;*/
+    margin-left:20px;
+    height:80%;
+    position: relative;
+    margin-top:43px;
+    margin-bottom: auto;
+    font-size:17.5px;
+    color: grey;
+    text-indent: 20px;
+}
+.adlist span{
+    /*border:1px solid red;*/
+    cursor: default;
+    position: relative;
+    top:20px;
+}
+.adlist ul,.adlist li{
+    /*border:1px solid pink;*/
+    padding: 0;
+    margin: 0;
+    list-style:none;
+    font-size: 17.5px;
+    height: 50px;
+}
+.adlist a{
+    border-bottom:1px solid whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17.5px;
+    display: block;
+    height: 100%;
+    margin: auto 1px;
+}
+.adlist span{
+    /*border:1px solid red;*/
+    color:grey;
+    position: relative;
+    top:11px;
+}
+.adlist a:hover{
+    border-left: 2px solid #E4AAD8;
+}
+.active2{
+    border-left: 2px solid #E4AAD8;
+}
+
+/*右边*/
+.rightnav{
+    height: 100%;
+    width:920px;
+    float: right;
+    /*border:1px solid pink;*/
+}
+
+/*上传文件页面的css细化*/
+.msupSpan{
+
+    color:grey;
+    font-size:20px;
+    border-bottom:1px solid whitesmoke;
+    height:90px;
+    text-indent: 20px;
+}
+.msupSpan span{
+    cursor: default;
+    position:relative;
+    font-size: 17px;
+    top:50px;
+}
+#adupimg0{
+    width: 200px;
+    height: 200px;
+    vertical-align: top;
+    border-radius:50%;
+    /*border:1px solid red;*/
+    background: transparent;
+    margin-left: 50px;
+    position: relative;
+}
+form{
+   /*border:1px solid pink;*/
+    position: relative;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+form label{
+    color:grey;
+    border:1px solid darkgrey;
+    padding: 10px 20px;
+}
+form label:hover{
+    color:black;
+    background: #F5F0AB;
+    border:1px solid black;
+}
+.formsvg{
+    /*border:1px solid red;*/
+    position: relative;
+    margin-left: 52px;
+    top:8px;
+    width: 30px;
+    height: 30px;
+}
+#file0,#file1,#file2,#file3,#file4{
+    display: none;
+}
+form input{
+    width:300px;
+    height: 40px;
+    border-radius: 10px;
+    border:1px solid darkgrey;
+    font-size:15px;
+    text-indent: 20px;
+    outline: none;
+}
+form input:focus{
+    border:1px solid pink;
+}
+.adupleft{
+    float: left;
+}
+/*右排版*/
+.adupright{
+    float: left;
+    margin-left: 200px;
+    /*border-left:1px solid grey;*/
+}
+.adupsubmit{
+    background: linear-gradient(to right,#F5F0AB,pink);
+}
+.aduptext{
+    width:300px;
+    height:200px;
+    overflow: hidden;
+}
+/*轮播图css*/
+.table_list{
+    border:none;
+    /*border:1px solid green;*/
+    margin: 25px auto;
+    /* height:100%; */
+    overflow: hidden;
+    text-indent: 5%;
+    width: 100%;
+}
+.table_list td{
+    /*border: 1px solid orange;*/
+    width: 80px;
+}
+.table_list tr {
+    border-left: 1px solid whitesmoke;
+    position: relative;
+}
+.table_list tr:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.table_list span{
+    /*border:1px solid red;*/
+    position: relative;
+    width: 50px;
+    left:30px;
+    color:grey;
+}
+.table_list img{
+    position: relative;
+    border-radius: 20px;
+    /*left:100px;*/
+    width: 450px;
+    height: 160px;
+    border:1px solid pink;
+}
+.table_list label{
+    color:grey;
+    border:1px solid darkgrey;
+    position: relative;
+    right:100px;
+    padding: 10px 15px;
+    width: 100px;
+}
+.table_list label:hover{
+    border: 1px solid black;
+    color: black;
+}
+.table_list button{
+    position: relative;
+    right: 75px;
+    width:100px;
+    height: 30px;
+    border:1px solid darkgrey;
+    background: linear-gradient(to right,#F5F0AB,pink);
+}
+#file3{
+    display: none;
+}
+/*aduser*/
+.admin_table{
+    /*border:1px solid pink;*/
+    position: relative;
+    top:87px;
+    width:100%;
+    text-align: center;
+    color:grey;
+}
+.admin_table td{
+    /*border:1px solid green;*/
+    width:50px;
+    height: 60px;
+}
+.admin_table img{
+    border-radius: 50%;
+    width:80px;
+    height: 80px;
+}
+.admin_table svg{
+    width: 30px;
+    height: 30px;
+}
+.admin_table tr{
+    border-bottom:1px solid grey;
+}
+.admin_table tr:hover{
+    background: gainsboro;
+}
+.usstatus{
+    border-radius: 10px;
+    border:1px solid grey;
+    text-align: center;
+    box-shadow: none;
+    outline: none;
+}
+.edit{
+    border:none;
+    background: transparent;
+    outline: none;
+}
+/*admycomment*/
+textarea{
+    position: relative;
+    outline: none;
+    top:3px;
+}
+/*album*/
+.albumform{
+    /*border:1px solid orange;*/
+    position: relative;
+    top:30px;
+    right:100px;
+    padding: 20px 10px;
+}
+.albumform input{
+    position: relative;
+    margin: 20px auto;
+}
+.albumform button{
+    border:1px solid grey;
+    background: transparent;
+    padding: 10px 50px;
+    position: relative;
+    top:220px;
+    left:70px;
+    color:grey;
+}
+.albumform button:hover{
+    background: #F5F0AB;
+    color: black;
+}
+
+.forup{
+    position: relative;
+    top:200px;
+    left:100px;
+}
+#forupimg{
+    height:180px;
+    width: 180px;
+    position: relative;
+    right: 460px;
+    border-radius: 50%;
+    /*border:1px solid red;*/
+    float: right;
+}
+
+/* admin music*/
+.musicform{
+    /*border:1px solid red;*/
+}
+
+.admin_table1{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color:grey;
+    width: 100%;
+    position: relative;
+    left:-100px;
+    /*border:1px solid pink;*/
+
+}
+.admin_table1 td{
+    /*border:1px solid green;*/
+    width:500px;
+    height:60px;
+}
+.admin_table1 img{
+    border-radius: 50%;
+    width:80px;
+    height: 80px;
+}
+.admin_table1 svg{
+    width: 30px;
+    height: 30px;
+}
+.admin_table1 tr{
+    border-bottom:1px solid grey;
+}
+.admin_table1 tr:hover{
+    background: gainsboro;
+}
+.musicpage{
+    /*border:1px solid red;*/
+    text-align: center;
+    position: relative;
+    top:50px;
+    font-size: 16px;
+}
+.musicpage a{
+    border:1px solid grey;
+    padding: 10px 20px;
+    text-decoration: none;
+    color:grey;
+}
+.musicpage a:hover{
+    broder:1px solid black;
+    color:black;
+    background: #F5F0AB;
+}
+#inputlist{
+    width: 80px;
+}
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music_index</title>
+</head>
+<th:block th:include="box/musicnav :: head">
+</th:block>
+<body>
+<div th:replace="box/musicnav :: nav">
+</div>
+<div th:replace="box/musicnav :: headernav">
+</div>
+<div class="musicindex">
+    <div class="album_title">
+        <span>新专首发</span>
+    </div>
+    <div class="album_body">
+<!--        图片底层背景-->
+        <div class="album_img" th:each="model : ${albumlist}">
+            <a th:href="@{/music/albumMusic(albumAlbumname=${model.albumname})}">
+                <img th:src="${model.albumimg}">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div th:replace="box/musicnav :: footer"></div>
+</body>
+</html>
